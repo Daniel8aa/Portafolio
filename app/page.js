@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import AboutMe from "@/components/AboutMe";
 import Experience from "@/components/Experience";
-import { PanelFlex, PanelSuite, PanelDB } from "@/components/ProjectPanels";
+import { PanelFlex, PanelSuite, PanelSpaceflix } from "@/components/ProjectPanels";
 import Manifiesto from "@/components/Manifiesto";
 import ArchivoDesarrollo from "@/components/ArchivoDesarrollo";
 import TechStack from "@/components/TechStack";
@@ -51,9 +51,9 @@ export default function Home() {
                     {/* Top panel full width */}
                     <div className="space-y-6">
                         <PanelFlex />
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
                             <PanelSuite />
-                            <PanelDB />
+                            <PanelSpaceflix />
                         </div>
                     </div>
                 </div>

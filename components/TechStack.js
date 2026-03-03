@@ -5,23 +5,27 @@ import { motion } from "framer-motion";
 const categories = [
     {
         title: "Frontend",
-        items: ["Vue.js", "React", "JavaScript", "HTML/CSS", "Tailwind CSS"],
+        items: ["Angular", "Vue.js", "React.js", "Next.js", "HTML5/CSS3/SCSS", "Tailwind CSS"],
     },
     {
         title: "Backend",
-        items: ["PHP", "Laravel", "Node.js", "REST API"],
+        items: ["Node.js", "Express", "PHP", "Laravel", "REST API", "WebSockets"],
     },
     {
-        title: "Base de Datos",
-        items: ["MySQL", "SQL", "Diseño Relacional"],
+        title: "Desarrollo Móvil",
+        items: ["Flutter & Dart", "Ionic & Capacitor", "PWA", "Android Studio"],
     },
     {
-        title: "DevOps & Herramientas",
-        items: ["Docker", "Linux", "Git", "Bash", "Apache"],
+        title: "Bases de Datos",
+        items: ["MySQL", "MariaDB", "MongoDB", "Firebase"],
+    },
+    {
+        title: "DevOps & CMS",
+        items: ["Docker", "Git/GitLab", "Google Cloud", "WordPress (Plugins)"],
     },
     {
         title: "Soft Skills",
-        items: ["Gestión de Proyectos", "Comunicación Técnica", "Mentoría", "Resolución de Problemas"],
+        items: ["Comunicación efectiva", "Resolución de problemas", "Pensamiento crítico", "Autodidacta"],
     },
 ];
 
@@ -55,8 +59,8 @@ export default function TechStack() {
                     className="mb-12"
                 >
                     <div className="flex items-center gap-3 mb-4">
-                        <div className="w-8 h-[1px] bg-accent-green" />
-                        <span className="font-mono text-xs text-accent-green tracking-wider">
+                        <div className="w-8 h-[1px] bg-accent-blue" />
+                        <span className="font-mono text-xs text-accent-blue tracking-wider">
                             HABILIDADES
                         </span>
                     </div>

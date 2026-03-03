@@ -49,35 +49,21 @@ export default function AboutMe() {
                                     <User className="w-5 h-5 text-accent-blue" />
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-semibold text-text-primary">Daniel</h3>
-                                    <span className="text-xs font-mono text-text-muted">Full-Stack Developer</span>
+                                    <h3 className="text-lg font-semibold text-text-primary">Luis Daniel Solis Ochoa</h3>
+                                    <span className="text-xs font-mono text-text-muted">Ingeniero de Software / Full-Stack Developer</span>
                                 </div>
                             </div>
 
                             <div className="space-y-4 text-[15px] text-text-muted leading-relaxed">
                                 <p>
-                                    Soy un desarrollador Full-Stack apasionado por construir{" "}
-                                    <span className="text-text-primary font-medium">software que resuelve problemas reales</span>.
-                                    Mi trayectoria se ha enfocado en el sector público y educativo, donde he diseñado
-                                    e implementado sistemas completos de gestión, chatbots institucionales y plataformas
-                                    de planeación estratégica.
+                                    Profesional en desarrollo de software con una sólida experiencia en tecnologías tanto web como móviles,
+                                    especializado en la creación de interfaces intuitivas y en la <span className="text-text-primary font-medium">optimización de la experiencia del usuario</span>.
                                 </p>
                                 <p>
-                                    Trabajo principalmente con{" "}
-                                    <span className="font-mono text-accent-blue">Vue.js</span>,{" "}
-                                    <span className="font-mono text-accent-blue">PHP</span>,{" "}
-                                    <span className="font-mono text-accent-blue">SQL</span>{" "}
-                                    y entornos <span className="font-mono text-accent-blue">Linux</span>.
-                                    Mi enfoque es la{" "}
-                                    <span className="text-text-primary font-medium">centralización de procesos,
-                                        la automatización</span> y la creación de arquitecturas que escalen sin acumular
-                                    deuda técnica.
+                                    Cuento con un amplio conocimiento en desarrollo <span className="font-mono text-accent-blue">Front-End (Vue.js, React.js, Next.js, Angular)</span>, además de sólidas capacidades en <span className="font-mono text-accent-blue">Back-End (PHP, Node.js, Laravel)</span> para implementar soluciones integrales.
                                 </p>
                                 <p>
-                                    Actualmente estoy cursando una{" "}
-                                    <span className="text-accent-green font-medium">Maestría en Transformación Digital</span>,
-                                    combinando mis habilidades técnicas con una visión estratégica para liderar proyectos
-                                    de innovación tecnológica.
+                                    Estoy comprometido con la <span className="text-text-primary font-medium">calidad y la innovación tecnológica</span>, trabajando con metodologías ágiles y bases de datos relacionales y no relacionales <span className="text-text-primary font-medium">(MySQL, MongoDB, Firebase)</span>. Mi meta es construir arquitecturas que escalen sin acumular deuda técnica.
                                 </p>
                             </div>
                         </div>
@@ -120,19 +106,23 @@ export default function AboutMe() {
                             className="glass-card p-5"
                         >
                             <div className="flex items-center gap-2 mb-3">
-                                <GraduationCap className="w-4 h-4 text-accent-green" />
-                                <span className="font-mono text-xs text-accent-green tracking-wider">
+                                <GraduationCap className="w-4 h-4 text-accent-blue" />
+                                <span className="font-mono text-xs text-accent-blue tracking-wider">
                                     EDUCACIÓN
                                 </span>
                             </div>
                             <div className="space-y-3">
-                                <div className="border-l-2 border-accent-green/30 pl-3">
+                                <div className="border-l-2 border-accent-blue/30 pl-3">
                                     <p className="text-sm font-semibold text-text-primary">Maestría en Transformación Digital</p>
-                                    <p className="text-xs text-text-muted font-mono">En curso · 2025 – Presente</p>
+                                    <p className="text-xs text-text-muted font-mono">2025 – Presente</p>
                                 </div>
                                 <div className="border-l-2 border-accent-blue/30 pl-3">
-                                    <p className="text-sm font-semibold text-text-primary">Ingeniería en Software / Sistemas</p>
-                                    <p className="text-xs text-text-muted font-mono">Universidad de Colima · Titulado</p>
+                                    <p className="text-sm font-semibold text-text-primary">Ingeniería en Software</p>
+                                    <p className="text-xs text-text-muted font-mono">2021 – 2025 · Titulado</p>
+                                </div>
+                                <div className="border-l-2 border-accent-blue/30 pl-3">
+                                    <p className="text-sm font-semibold text-text-primary">Técnico Analista Programador</p>
+                                    <p className="text-xs text-text-muted font-mono">2018 – 2021</p>
                                 </div>
                             </div>
                         </motion.div>

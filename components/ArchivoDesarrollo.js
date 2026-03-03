@@ -2,19 +2,21 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { FileSpreadsheet, Smartphone, Podcast } from "lucide-react";
+import Image from "next/image";
+import { FileSpreadsheet, Smartphone, Podcast, BookOpen } from "lucide-react";
 
 const archiveCards = [
     {
-        id: "reportes",
-        icon: FileSpreadsheet,
-        label: "REPORT_AUTO.v2",
-        title: "Automatización de Reportes Académicos",
+        id: "diplomados",
+        icon: BookOpen,
+        label: "DIPLOMADOS.v1",
+        title: "Catalogo DGEC - Diplomados y Cursos",
         description:
-            "Generación automatizada de reportes en Excel: alumnos inscritos, calificaciones por jornada, libros entregados y métricas institucionales. Eliminación de procesos manuales repetitivos.",
-        impact: "Reducción del 80% en tiempo de generación de reportes",
-        tags: ["PHP", "PhpSpreadsheet", "SQL", "Automatización"],
-        bgStyle: "laser",
+            "Sistema integral para la visualización, filtrado y gestión de la oferta académica (diplomados y cursos) de Educación Continua. Implementado con React para una navegación ultra rápida.",
+        impact: "Centralización de ofertas educativas",
+        tags: ["React", "Educación Continua", "UI/UX"],
+        bgStyle: "waves",
+        image: "/images/catalogo.png",
     },
     {
         id: "app-movil",
@@ -136,6 +138,16 @@ function ArchiveCard({ card, index }) {
                         </div>
                     </div>
                 </div>
+                {card.image && (
+                    <div className="relative mt-8 h-64 md:h-80 w-full rounded-xl overflow-hidden border border-border">
+                        <Image
+                            src={card.image}
+                            alt={card.title}
+                            fill
+                            className="object-cover object-top opacity-80 hover:opacity-100 hover:scale-[1.02] transition-all duration-700"
+                        />
+                    </div>
+                )}
             </div>
         </motion.div>
     );
