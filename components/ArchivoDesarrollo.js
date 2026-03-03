@@ -20,26 +20,16 @@ const archiveCards = [
         link: "https://datacenter.ucol.mx/dgec/Catalogo"
     },
     {
-        id: "app-movil",
-        icon: Smartphone,
-        label: "MOBILE_SDK.v1",
-        title: "App Móvil SDK + Mentoría en Talleres",
+        id: "cotizador",
+        icon: FileSpreadsheet,
+        label: "COTIZADOR.v1",
+        title: "Cotizador de Lámina y Pintura",
         description:
-            "Desarrollo de aplicación móvil con SDK institucional. Sistema de mentoría para estudiantes, notificaciones push y seguimiento de avance académico.",
-        impact: "Capacitación directa a 30+ estudiantes en desarrollo web",
-        tags: ["Vue.js", "Capacitor", "REST API", "Push Notifications"],
-        bgStyle: "waves",
-    },
-    {
-        id: "podcast",
-        icon: Podcast,
-        label: "DIVULGACION.v1",
-        title: "Podcast & Divulgación sobre Transformación Digital",
-        description:
-            "Creación de contenido técnico y divulgación sobre desarrollo de software, Linux, automatización y transformación digital en el sector público.",
-        impact: "Difusión de conocimiento técnico para comunidad universitaria",
-        tags: ["Educación", "Linux", "Open Source", "Comunicación"],
-        bgStyle: "audio",
+            "Sistema automatizado para la generación de cotizaciones detalladas en talleres de hojalatería y pintura. Optimiza el cálculo de materiales, mano de obra y tiempos de entrega con exportación a PDF.",
+        impact: "Automatización de presupuestos y mejora en tiempos de respuesta al cliente.",
+        tags: ["Vue.js", "PHP", "Gestión", "PDF Export"],
+        bgStyle: "laser",
+        image: "/images/cotizador.png",
     },
 ];
 
@@ -87,20 +77,20 @@ function AudioVisualizerBg() {
 
 function ArchiveCard({ card, index }) {
     const cardRef = useRef(null);
-    const isInView = useInView(cardRef, { once: false, margin: "-20% 0px -20% 0px" });
+    const isInView = useInView(cardRef, { once: false, margin: "-10% 0px -10% 0px" });
 
     return (
         <motion.div
             ref={cardRef}
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
-                duration: 0.7,
+                duration: 0.8,
                 delay: index * 0.1,
                 ease: [0.16, 1, 0.3, 1],
             }}
-            viewport={{ once: true, margin: "-50px" }}
-            className={`relative glass-card overflow-hidden transition-all duration-700 ${isInView ? "" : "scale-[0.95] blur-[10px] opacity-40"
+            viewport={{ once: true, margin: "-20px" }}
+            className={`relative glass-card overflow-hidden transition-all duration-1000 ease-out ${isInView ? "scale-100 blur-0 opacity-100" : "scale-[0.98] blur-[8px] opacity-40 shadow-none border-transparent"
                 }`}
         >
             {card.bgStyle === "laser" && <LaserGrid />}
