@@ -1,0 +1,227 @@
+@import "tailwindcss";
+
+/* ── Custom Theme Tokens ── */
+@theme {
+  --color-void: #09090B;
+  --color-accent-blue: #3B82F6;
+  --color-accent-green: #10B981;
+  --color-surface: #18181B;
+  --color-surface-80: rgba(24, 24, 27, 0.8);
+  --color-text-primary: #FAFAFA;
+  --color-text-muted: #A1A1AA;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border-hover: rgba(255, 255, 255, 0.2);
+
+  --font-sans: "Inter", "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+}
+
+/* ── Base Resets ── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #09090B;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background-color: var(--color-void);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Noise Texture Overlay ── */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+}
+
+.noise-overlay svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Scrollbar Styling ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-void);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent-blue);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #60a5fa;
+}
+
+/* ── Selection ── */
+::selection {
+  background: rgba(59, 130, 246, 0.3);
+  color: var(--color-text-primary);
+}
+
+/* ── Typing cursor blink ── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* ── Pulse live dot ── */
+@keyframes pulse-dot {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+  }
+}
+
+.live-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* ── Glassmorphism Card Base ── */
+.glass-card {
+  background: var(--color-surface-80);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.glass-card:hover {
+  border-color: var(--color-border-hover);
+}
+
+/* ── Gradient Glow for Hero ── */
+.hero-glow {
+  background: radial-gradient(
+    ellipse 80% 50% at 50% 50%,
+    rgba(59, 130, 246, 0.08) 0%,
+    rgba(59, 130, 246, 0.03) 40%,
+    transparent 70%
+  );
+}
+
+/* ── Gradient text utility ── */
+.gradient-text-blue {
+  background: linear-gradient(135deg, #3B82F6, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-green {
+  background: linear-gradient(135deg, #10B981, #34d399);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Stacked cards section ── */
+.archive-card {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.archive-card.behind {
+  transform: scale(0.95);
+  filter: blur(10px);
+  opacity: 0.4;
+}
+
+/* ── Subtle laser grid for cards ── */
+.laser-grid {
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ── Pulsing waves ── */
+@keyframes wave-pulse {
+  0% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.05); opacity: 0.15; }
+  100% { transform: scale(1); opacity: 0.3; }
+}
+
+.wave-bg {
+  animation: wave-pulse 4s ease-in-out infinite;
+}
+
+/* ── Audio visualizer bars ── */
+@keyframes audio-bar {
+  0%, 100% { height: 20%; }
+  25% { height: 60%; }
+  50% { height: 100%; }
+  75% { height: 40%; }
+}
+
+.audio-bar {
+  animation: audio-bar 1.2s ease-in-out infinite;
+}
+
+/* ── Float animation ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ── Navbar island ── */
+.navbar-island {
+  background: rgba(24, 24, 27, 0.7);
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+/* ── Section spacing ── */
+.section-spacing {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+@media (min-width: 768px) {
+  .section-spacing {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+/* ── Manifesto reveal ── */
+.manifesto-word {
+  opacity: 0.15;
+  transition: opacity 0.4s ease;
+}
+
+.manifesto-word.active {
+  opacity: 1;
+}
