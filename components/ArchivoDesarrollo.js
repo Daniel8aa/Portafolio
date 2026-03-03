@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
-import { FileSpreadsheet, Smartphone, Podcast, BookOpen } from "lucide-react";
+import { FileSpreadsheet, Smartphone, Podcast, BookOpen, ExternalLink } from "lucide-react";
 
 const archiveCards = [
     {
@@ -17,6 +17,7 @@ const archiveCards = [
         tags: ["React", "Educación Continua", "UI/UX"],
         bgStyle: "waves",
         image: "/images/catalogo.png",
+        link: "https://datacenter.ucol.mx/dgec/Catalogo"
     },
     {
         id: "app-movil",
@@ -126,15 +127,28 @@ function ArchiveCard({ card, index }) {
                             → {card.impact}
                         </p>
 
-                        <div className="flex flex-wrap gap-2">
-                            {card.tags.map((tag) => (
-                                <span
-                                    key={tag}
-                                    className="px-3 py-1 text-xs font-mono bg-white/5 border border-border rounded-md text-text-muted"
+                        <div className="flex flex-wrap items-center gap-4">
+                            <div className="flex flex-wrap gap-2">
+                                {card.tags.map((tag) => (
+                                    <span
+                                        key={tag}
+                                        className="px-3 py-1 text-xs font-mono bg-white/5 border border-border rounded-md text-text-muted"
+                                    >
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                            {card.link && (
+                                <a
+                                    href={card.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-1 text-xs font-mono text-accent-blue hover:underline"
                                 >
-                                    {tag}
-                                </span>
-                            ))}
+                                    <ExternalLink className="w-3.5 h-3.5" />
+                                    Sitio Oficial
+                                </a>
+                            )}
                         </div>
                     </div>
                 </div>

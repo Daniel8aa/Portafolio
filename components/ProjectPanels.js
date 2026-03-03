@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
-import { Bot, Calendar, PlaySquare, Monitor, FileText, BarChart3 } from "lucide-react";
+import { Bot, Calendar, PlaySquare, Monitor, FileText, BarChart3, ExternalLink, Smartphone } from "lucide-react";
 
 export function PanelFlex() {
     const ref = useRef(null);
@@ -37,12 +37,25 @@ export function PanelFlex() {
                         Más de <span className="text-text-primary font-medium">miles de usuarios</span> interactuando
                         con una interfaz fluida e intuitiva.
                     </p>
-                    <div className="flex flex-wrap gap-2 mb-6">
-                        {["Vue.js", "PHP", "Docker"].map((t) => (
-                            <span key={t} className="px-2.5 py-1 text-xs font-mono bg-accent-blue/5 border border-accent-blue/20 rounded-md text-accent-blue/80">
-                                {t}
-                            </span>
-                        ))}
+                    <div className="flex flex-wrap gap-4 mb-6">
+                        <div className="flex flex-wrap gap-2">
+                            {["Vue.js", "PHP", "Docker"].map((t) => (
+                                <span key={t} className="px-2.5 py-1 text-xs font-mono bg-accent-blue/5 border border-accent-blue/20 rounded-md text-accent-blue/80">
+                                    {t}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                    <div>
+                        <a
+                            href="https://datacenter.ucol.mx/dgec/FLEX/home"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-mono text-accent-blue border border-accent-blue/30 rounded-lg hover:bg-accent-blue/10 transition-all duration-300"
+                        >
+                            <ExternalLink className="w-4 h-4" />
+                            Visitar Sitio
+                        </a>
                     </div>
                 </div>
                 <div className="relative h-64 lg:h-auto w-full bg-void/50 border-t lg:border-t-0 lg:border-l border-border/50 overflow-hidden">
@@ -65,7 +78,7 @@ export function PanelSuite() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             viewport={{ once: true, margin: "-50px" }}
-            className="glass-card p-6 md:p-8 overflow-hidden"
+            className="glass-card p-6 md:p-8 overflow-hidden h-full flex flex-col"
         >
             <div className="flex items-center gap-2 mb-2">
                 <div className="w-8 h-8 rounded-lg bg-accent-blue/10 border border-accent-blue/30 flex items-center justify-center">
@@ -82,8 +95,7 @@ export function PanelSuite() {
                 Desarrollo de sistemas robustos interconectados. Plataformas para la transparencia y gestión de datos complejos.
             </p>
 
-            {/* Stack visualization */}
-            <div className="space-y-2 mb-5">
+            <div className="space-y-2 mb-5 flex-1">
                 {[
                     { label: "POA_26", desc: "Presupuesto", icon: Calendar, color: "accent-blue" },
                     { label: "PD_26", desc: "Plan de Desarrollo", icon: FileText, color: "accent-blue" },
@@ -128,7 +140,7 @@ export function PanelSpaceflix() {
             <div className="relative h-48 w-full bg-void/50 border-b border-border/50 overflow-hidden">
                 <Image
                     src="/images/spaceflix.png"
-                    alt="Spaceflix App en Google Play"
+                    alt="Spaceflix App"
                     fill
                     className="object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-700"
                 />
@@ -151,12 +163,80 @@ export function PanelSpaceflix() {
                     </p>
                 </div>
 
-                <div className="flex flex-wrap gap-2">
-                    {["Ionic", "Angular", "Firebase"].map((t) => (
-                        <span key={t} className="px-2.5 py-1 text-xs font-mono bg-accent-blue/5 border border-accent-blue/20 rounded-md text-accent-blue/80">
-                            {t}
+                <div className="space-y-4">
+                    <div className="flex flex-wrap gap-2">
+                        {["Ionic", "Angular", "Firebase"].map((t) => (
+                            <span key={t} className="px-2.5 py-1 text-xs font-mono bg-accent-blue/5 border border-accent-blue/20 rounded-md text-accent-blue/80">
+                                {t}
+                            </span>
+                        ))}
+                    </div>
+                    <div className="flex flex-wrap gap-3">
+                        <a
+                            href="https://play.google.com/store/apps/details?id=io.PHMSoft.SF&hl=es_MX"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-mono text-accent-blue border border-accent-blue/30 rounded-lg hover:bg-accent-blue/10 transition-all duration-300"
+                        >
+                            <Smartphone className="w-3.5 h-3.5" />
+                            Google Play
+                        </a>
+                        <a
+                            href="https://spaceflix.digital/#/login"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-mono text-accent-blue border border-accent-blue/30 rounded-lg hover:bg-accent-blue/10 transition-all duration-300"
+                        >
+                            <ExternalLink className="w-3.5 h-3.5" />
+                            Web App
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </motion.div>
+    );
+}
+
+export function PanelSectorUniversitario() {
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true, margin: "-50px" }}
+            className="glass-card overflow-hidden group col-span-1 lg:col-span-2"
+        >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                <div className="relative h-64 lg:h-auto w-full bg-void/50 border-b lg:border-b-0 lg:border-r border-border/50 overflow-hidden order-2 lg:order-1">
+                    <Image
+                        src="/images/sector_universitario.png"
+                        alt="Plataforma Sector Universitario"
+                        fill
+                        className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-700"
+                    />
+                </div>
+                <div className="p-6 md:p-8 flex flex-col justify-center order-1 lg:order-2">
+                    <div className="flex items-center gap-2 mb-4">
+                        <div className="w-8 h-8 rounded-lg bg-accent-blue/10 border border-accent-blue/30 flex items-center justify-center">
+                            <Monitor className="w-4 h-4 text-accent-blue" />
+                        </div>
+                        <span className="font-mono text-xs text-accent-blue tracking-wider">
+                            INSTITUCIONAL
                         </span>
-                    ))}
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-bold text-text-primary mb-3">
+                        Sector Universitario
+                    </h3>
+                    <p className="text-sm text-text-muted leading-relaxed mb-6">
+                        Plataforma centralizada para la gestión de solicitudes, usuarios y direcciones dentro del ecosistema universitario. Incluye módulos de cotización y administración de recursos.
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-6">
+                        {["React", "Node.js", "MySQL", "UI/UX"].map((t) => (
+                            <span key={t} className="px-2.5 py-1 text-xs font-mono bg-accent-blue/5 border border-accent-blue/20 rounded-md text-accent-blue/80">
+                                {t}
+                            </span>
+                        ))}
+                    </div>
                 </div>
             </div>
         </motion.div>
