@@ -8,7 +8,7 @@ const experiences = [
     {
         role: "Desarrollador Full-Stack",
         company: "Universidad de Colima",
-        area: "Dirección de Sistemas",
+        area: "Sistemas",
         period: "Feb 2023 – Presente",
         current: true,
         description:
