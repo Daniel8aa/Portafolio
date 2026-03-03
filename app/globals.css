@@ -16,12 +16,7 @@
   --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
 }
 
-/* ── Base Resets ── */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
 
 html {
   scroll-behavior: smooth;
@@ -80,8 +75,15 @@ body {
 
 /* ── Typing cursor blink ── */
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 .cursor-blink {
@@ -90,9 +92,12 @@ body {
 
 /* ── Pulse live dot ── */
 @keyframes pulse-dot {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
   }
+
   50% {
     box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
   }
@@ -117,12 +122,10 @@ body {
 
 /* ── Gradient Glow for Hero ── */
 .hero-glow {
-  background: radial-gradient(
-    ellipse 80% 50% at 50% 50%,
-    rgba(59, 130, 246, 0.08) 0%,
-    rgba(59, 130, 246, 0.03) 40%,
-    transparent 70%
-  );
+  background: radial-gradient(ellipse 80% 50% at 50% 50%,
+      rgba(59, 130, 246, 0.08) 0%,
+      rgba(59, 130, 246, 0.03) 40%,
+      transparent 70%);
 }
 
 /* ── Gradient text utility ── */
@@ -143,8 +146,8 @@ body {
 /* ── Stacked cards section ── */
 .archive-card {
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    filter 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .archive-card.behind {
@@ -163,9 +166,20 @@ body {
 
 /* ── Pulsing waves ── */
 @keyframes wave-pulse {
-  0% { transform: scale(1); opacity: 0.3; }
-  50% { transform: scale(1.05); opacity: 0.15; }
-  100% { transform: scale(1); opacity: 0.3; }
+  0% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: 0.15;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
 }
 
 .wave-bg {
@@ -174,10 +188,23 @@ body {
 
 /* ── Audio visualizer bars ── */
 @keyframes audio-bar {
-  0%, 100% { height: 20%; }
-  25% { height: 60%; }
-  50% { height: 100%; }
-  75% { height: 40%; }
+
+  0%,
+  100% {
+    height: 20%;
+  }
+
+  25% {
+    height: 60%;
+  }
+
+  50% {
+    height: 100%;
+  }
+
+  75% {
+    height: 40%;
+  }
 }
 
 .audio-bar {
@@ -186,8 +213,15 @@ body {
 
 /* ── Float animation ── */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .float-animation {
