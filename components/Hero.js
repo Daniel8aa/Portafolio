@@ -141,15 +141,6 @@ export default function Hero() {
                     className="flex flex-col sm:flex-row items-center justify-center gap-4"
                 >
                     <a
-                        href="/cv-daniel.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group flex items-center gap-2.5 px-7 py-3.5 bg-accent-blue hover:bg-blue-500 text-white font-medium rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-accent-blue/25 hover:-translate-y-0.5"
-                    >
-                        <Download className="w-5 h-5" />
-                        <span>Previsualizar CV</span>
-                    </a>
-                    <a
                         href="https://github.com/Daniel8aa"
                         target="_blank"
                         rel="noopener noreferrer"
