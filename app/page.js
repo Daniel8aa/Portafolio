@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import AboutMe from "@/components/AboutMe";
 import Experience from "@/components/Experience";
-import { PanelFlex, PanelSuite, PanelSpaceflix, PanelSectorUniversitario } from "@/components/ProjectPanels";
+import { PanelFlex, PanelSuite, PanelSpaceflix, PanelSectorUniversitario, PanelCotizador, PanelPayfri } from "@/components/ProjectPanels";
 import Manifiesto from "@/components/Manifiesto";
 import ArchivoDesarrollo from "@/components/ArchivoDesarrollo";
 import TechStack from "@/components/TechStack";
@@ -56,6 +56,8 @@ export default function Home() {
                             <PanelSuite />
                             <PanelSpaceflix />
                         </div>
+                        <PanelCotizador />
+                        <PanelPayfri />
                     </div>
                 </div>
             </section>

@@ -31,7 +31,7 @@ export default function Footer() {
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <a
-                            href="mailto:contacto@daniel.dev"
+                            href="mailto:luisdanielsolis8a@gmail.com"
                             className="group flex items-center gap-2.5 px-7 py-3.5 bg-accent-blue hover:bg-blue-500 text-white font-medium rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-accent-blue/25 hover:-translate-y-0.5"
                         >
                             <Mail className="w-5 h-5" />
@@ -96,11 +96,11 @@ export default function Footer() {
                                     <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-50 transition-opacity" />
                                 </a>
                                 <a
-                                    href="mailto:contacto@daniel.dev"
+                                    href="mailto:luisdanielsolis8a@gmail.com"
                                     className="flex items-center gap-3 text-sm text-text-muted hover:text-text-primary transition-colors duration-300 group"
                                 >
                                     <Mail className="w-4 h-4 group-hover:text-accent-blue transition-colors" />
-                                    <span>contacto@daniel.dev</span>
+                                    <span>luisdanielsolis8a@gmail.com</span>
                                 </a>
                             </div>
                         </div>

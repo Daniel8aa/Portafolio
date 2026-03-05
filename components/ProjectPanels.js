@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
-import { Bot, Calendar, PlaySquare, Monitor, FileText, BarChart3, ExternalLink, Smartphone } from "lucide-react";
+import { Bot, Calendar, PlaySquare, Monitor, FileText, BarChart3, ExternalLink, Smartphone, Calculator } from "lucide-react";
 
 export function PanelFlex() {
     const ref = useRef(null);
@@ -236,6 +236,113 @@ export function PanelSectorUniversitario() {
                                 {t}
                             </span>
                         ))}
+                    </div>
+                </div>
+            </div>
+        </motion.div>
+    );
+}
+
+export function PanelCotizador() {
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true, margin: "-50px" }}
+            className="glass-card overflow-hidden group"
+        >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                <div className="p-6 md:p-8 flex flex-col justify-center">
+                    <div className="flex items-center gap-2 mb-4">
+                        <div className="w-8 h-8 rounded-lg bg-accent-green/10 border border-accent-green/30 flex items-center justify-center">
+                            <Calculator className="w-4 h-4 text-accent-green" />
+                        </div>
+                        <span className="font-mono text-xs text-accent-green tracking-wider">
+                            HERRAMIENTAS & FINANZAS
+                        </span>
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-bold text-text-primary mb-3">
+                        Sistemas Cotizadores DGEC & Vinculación
+                    </h3>
+                    <p className="text-sm text-text-muted leading-relaxed mb-6">
+                        Desarrollo de diferentes cotizadores especializados para la Universidad de Colima. Estas herramientas permiten calcular de manera precisa los costos de eventos, diplomados y la renta de espacios físicos, optimizando la gestión financiera y agilizando procesos institucionales.
+                    </p>
+                    <div className="flex flex-wrap gap-4 mb-6">
+                        <div className="flex flex-wrap gap-2">
+                            {["Desarrollo Web", "Lógica de Negocios", "UX/UI"].map((t) => (
+                                <span key={t} className="px-2.5 py-1 text-xs font-mono bg-accent-green/5 border border-accent-green/20 rounded-md text-accent-green/80">
+                                    {t}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className="relative h-64 lg:h-auto w-full bg-void/50 border-t lg:border-t-0 lg:border-l border-border/50 overflow-hidden">
+                    <Image
+                        src="/images/cotizador.png"
+                        alt="Sistemas Cotizadores UDC"
+                        fill
+                        className="object-cover object-left-top opacity-80 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-700"
+                    />
+                </div>
+            </div>
+        </motion.div>
+    );
+}
+
+export function PanelPayfri() {
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true, margin: "-50px" }}
+            className="glass-card overflow-hidden group"
+        >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                <div className="relative h-64 lg:h-auto w-full bg-void/50 border-b lg:border-b-0 lg:border-r border-border/50 overflow-hidden">
+                    <Image
+                        src="/images/payfri.png"
+                        alt="Payfri Wallet"
+                        fill
+                        className="object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-700"
+                    />
+                </div>
+                <div className="p-6 md:p-8 flex flex-col justify-center">
+                    <div className="flex items-center gap-2 mb-4">
+                        <div className="w-8 h-8 rounded-lg bg-pink-500/10 border border-pink-500/30 flex items-center justify-center">
+                            <Smartphone className="w-4 h-4 text-pink-500" />
+                        </div>
+                        <span className="font-mono text-xs text-pink-500 tracking-wider">
+                            FREELANCE APP
+                        </span>
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-bold text-text-primary mb-3">
+                        Payfri Wallet
+                    </h3>
+                    <p className="text-sm text-text-muted leading-relaxed mb-6">
+                        Colaboré como desarrollador freelance en la creación de Payfri Wallet, una aplicación financiera disponible en la Play Store. Diseñada con un enfoque en la agilidad y experiencia del usuario para transacciones rápidas.
+                    </p>
+                    <div className="flex flex-wrap gap-4 mb-6">
+                        <div className="flex flex-wrap gap-2">
+                            {["Móvil", "Billetera Digital", "PWA"].map((t) => (
+                                <span key={t} className="px-2.5 py-1 text-xs font-mono bg-pink-500/5 border border-pink-500/20 rounded-md text-pink-500/80">
+                                    {t}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                    <div>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.walletpayfri.magenta"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-mono text-pink-500 border border-pink-500/30 rounded-lg hover:bg-pink-500/10 transition-all duration-300"
+                        >
+                            <ExternalLink className="w-4 h-4" />
+                            Ver en Play Store
+                        </a>
                     </div>
                 </div>
             </div>
