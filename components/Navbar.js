@@ -68,7 +68,8 @@ export default function Navbar() {
                     ))}
                     <a
                         href="/cv-daniel.pdf"
-                        download
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="ml-2 flex items-center gap-1.5 px-3 py-1.5 text-sm font-mono text-accent-blue hover:bg-accent-blue/10 border border-accent-blue/30 rounded-lg transition-all duration-300"
                     >
                         <Download className="w-3.5 h-3.5" />
@@ -108,11 +109,12 @@ export default function Navbar() {
                         ))}
                         <a
                             href="/cv-daniel.pdf"
-                            download
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="mt-1 flex items-center gap-2 px-3 py-2.5 text-sm font-mono text-accent-blue hover:bg-accent-blue/10 rounded-lg transition-all duration-300"
                         >
                             <Download className="w-3.5 h-3.5" />
-                            Descargar CV
+                            Previsualizar CV
                         </a>
                     </motion.div>
                 )}
