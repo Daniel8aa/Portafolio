@@ -122,7 +122,7 @@ export default function Hero() {
                     variants={itemVariants}
                     className="text-base sm:text-lg text-text-muted font-light max-w-2xl mx-auto mb-3 leading-relaxed"
                 >
-                    Desarrollador Full-Stack &nbsp;·&nbsp; Entornos Linux &nbsp;·&nbsp;
+                    Desarrollador Full-Stack &nbsp;·&nbsp; Arquitectura de Software &nbsp;·&nbsp;
                     Maestría en Transformación Digital
                 </motion.p>
 
