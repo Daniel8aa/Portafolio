@@ -60,7 +60,7 @@ export function PanelFlex() {
                 </div>
                 <div className="relative h-64 lg:h-auto w-full bg-void/50 border-t lg:border-t-0 lg:border-l border-border/50 overflow-hidden">
                     <Image
-                        src="/images/flex.png"
+                        src="/images/spaceflix.png"
                         alt="Plataforma FLEX Cursos de Idiomas"
                         fill
                         className="object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-700"
@@ -139,7 +139,7 @@ export function PanelSpaceflix() {
         >
             <div className="relative h-48 w-full bg-void/50 border-b border-border/50 overflow-hidden">
                 <Image
-                    src="/images/spaceflix.png"
+                    src="/images/flex.png"
                     alt="Spaceflix App"
                     fill
                     className="object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-700"
@@ -280,7 +280,7 @@ export function PanelCotizador() {
                 </div>
                 <div className="relative h-64 lg:h-auto w-full bg-void/50 border-t lg:border-t-0 lg:border-l border-border/50 overflow-hidden">
                     <Image
-                        src="/images/cotizador.png"
+                        src="/images/cotizador_nuevo.png"
                         alt="Sistemas Cotizadores UDC"
                         fill
                         className="object-cover object-left-top opacity-80 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-700"
