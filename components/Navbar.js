@@ -84,9 +84,10 @@ export default function Navbar() {
                     
                     <button
                         onClick={toggleLanguage}
-                        className="ml-2 flex items-center justify-center px-2 py-1.5 text-sm font-mono text-text-muted hover:text-text-primary hover:bg-white/5 rounded-lg transition-all duration-300 uppercase"
+                        className="ml-2 flex items-center justify-center px-2 py-1.5 text-xl font-mono text-text-muted hover:text-text-primary hover:bg-white/5 rounded-lg transition-all duration-300"
+                        title={i18n.language === 'en' ? 'Cambiar a Español' : 'Switch to English'}
                     >
-                        {i18n.language === 'en' ? 'EN' : 'ES'}
+                        {i18n.language === 'en' ? '🇲🇽' : '🇺🇸'}
                     </button>
                 </div>
 
@@ -94,9 +95,10 @@ export default function Navbar() {
                 <div className="flex items-center gap-2 lg:hidden">
                     <button
                         onClick={toggleLanguage}
-                        className="flex items-center justify-center px-2 py-1.5 text-sm font-mono text-text-muted hover:text-text-primary hover:bg-white/5 rounded-lg transition-all duration-300 uppercase"
+                        className="flex items-center justify-center px-2 py-1.5 text-xl font-mono text-text-muted hover:text-text-primary hover:bg-white/5 rounded-lg transition-all duration-300"
+                        title={i18n.language === 'en' ? 'Cambiar a Español' : 'Switch to English'}
                     >
-                        {i18n.language === 'en' ? 'EN' : 'ES'}
+                        {i18n.language === 'en' ? '🇲🇽' : '🇺🇸'}
                     </button>
                     <button
                         onClick={() => setMobileOpen(!mobileOpen)}
