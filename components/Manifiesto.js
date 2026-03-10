@@ -21,9 +21,10 @@ export default function Manifiesto() {
     const { t } = useTranslation();
     const lines = t("manifesto.lines", { returnObjects: true }) || [];
     const containerRef = useRef(null);
+    const textRef = useRef(null);
     const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start end", "end start"],
+        target: textRef,
+        offset: ["start 85%", "end 45%"],
     });
 
     const allWords = lines.flatMap((line) => (line.text || "").split(" "));
@@ -44,7 +45,7 @@ export default function Manifiesto() {
                     <span className="font-mono text-xs text-accent-blue tracking-wider">{t("manifesto.section")}</span>
                 </motion.div>
 
-                <div className="space-y-4 md:space-y-6">
+                <div ref={textRef} className="space-y-4 md:space-y-6">
                     {lines.map((line, lineIndex) => {
                         const words = (line.text || "").split(" ");
                         const wordsBefore = lines
