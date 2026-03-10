@@ -4,34 +4,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { FileSpreadsheet, Smartphone, Podcast, BookOpen, ExternalLink } from "lucide-react";
-
-const archiveCards = [
-    {
-        id: "diplomados",
-        icon: BookOpen,
-        label: "DIPLOMADOS.v1",
-        title: "Catalogo DGEC - Diplomados y Cursos",
-        description:
-            "Sistema integral para la visualización, filtrado y gestión de la oferta académica (diplomados y cursos) de Educación Continua. Implementado con React para una navegación ultra rápida.",
-        impact: "Centralización de ofertas educativas",
-        tags: ["React", "Educación Continua", "UI/UX"],
-        bgStyle: "waves",
-        image: "/images/catalogo.png",
-        link: "https://datacenter.ucol.mx/dgec/Catalogo"
-    },
-    {
-        id: "cotizador",
-        icon: FileSpreadsheet,
-        label: "COTIZADOR.v1",
-        title: "Cotizador de Lámina y Pintura",
-        description:
-            "Sistema automatizado para la generación de cotizaciones detalladas en talleres de hojalatería y pintura. Optimiza el cálculo de materiales, mano de obra y tiempos de entrega con exportación a PDF.",
-        impact: "Automatización de presupuestos y mejora en tiempos de respuesta al cliente.",
-        tags: ["Vue.js", "PHP", "Gestión", "PDF Export"],
-        bgStyle: "laser",
-        image: "/images/cotizador.png",
-    },
-];
+import { useTranslation } from "react-i18next";
 
 function LaserGrid() {
     return <div className="absolute inset-0 opacity-30 laser-grid" />;
@@ -76,6 +49,7 @@ function AudioVisualizerBg() {
 }
 
 function ArchiveCard({ card, index }) {
+    const { t } = useTranslation();
     const cardRef = useRef(null);
     const isInView = useInView(cardRef, { once: false, margin: "-10% 0px -10% 0px" });
 
@@ -100,7 +74,8 @@ function ArchiveCard({ card, index }) {
             <div className="relative z-10 p-6 md:p-8 lg:p-10">
                 <div className="flex flex-col md:flex-row md:items-start gap-6">
                     <div className="w-14 h-14 rounded-xl bg-accent-blue/10 border border-accent-blue/30 flex items-center justify-center shrink-0">
-                        <card.icon className="w-7 h-7 text-accent-blue" />
+                        {card.id === "diplomados" && <BookOpen className="w-7 h-7 text-accent-blue" />}
+                        {card.id === "cotizador" && <FileSpreadsheet className="w-7 h-7 text-accent-blue" />}
                     </div>
                     <div className="flex-1">
                         <span className="font-mono text-xs text-accent-green tracking-wider mb-2 block">
@@ -112,7 +87,6 @@ function ArchiveCard({ card, index }) {
                         <p className="text-sm md:text-base text-text-muted leading-relaxed mb-3 max-w-2xl">
                             {card.description}
                         </p>
-                        {/* Impact */}
                         <p className="text-sm text-accent-green font-mono mb-5">
                             → {card.impact}
                         </p>
@@ -128,24 +102,34 @@ function ArchiveCard({ card, index }) {
                                     </span>
                                 ))}
                             </div>
-                            {card.link && (
+                            {card.id === "diplomados" && (
                                 <a
-                                    href={card.link}
+                                    href="https://datacenter.ucol.mx/dgec/Catalogo"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center gap-1 text-xs font-mono text-accent-blue hover:underline"
                                 >
                                     <ExternalLink className="w-3.5 h-3.5" />
-                                    Sitio Oficial
+                                    {t("archive.visit")}
                                 </a>
                             )}
                         </div>
                     </div>
                 </div>
-                {card.image && (
+                {card.id === "diplomados" && (
                     <div className="relative mt-8 h-64 md:h-80 w-full rounded-xl overflow-hidden border border-border">
                         <Image
-                            src={card.image}
+                            src="/images/catalogo.png"
+                            alt={card.title}
+                            fill
+                            className="object-cover object-top opacity-80 hover:opacity-100 hover:scale-[1.02] transition-all duration-700"
+                        />
+                    </div>
+                )}
+                {card.id === "cotizador" && (
+                    <div className="relative mt-8 h-64 md:h-80 w-full rounded-xl overflow-hidden border border-border">
+                        <Image
+                            src="/images/cotizador.png"
                             alt={card.title}
                             fill
                             className="object-cover object-top opacity-80 hover:opacity-100 hover:scale-[1.02] transition-all duration-700"
@@ -158,6 +142,17 @@ function ArchiveCard({ card, index }) {
 }
 
 export default function ArchivoDesarrollo() {
+    const { t } = useTranslation();
+    const archiveCards = t("archive.cards", { returnObjects: true }) || [];
+    
+    // Asignar los bgStyles aquí para mantener la lógica de UI
+    if (archiveCards.length > 0) {
+        archiveCards[0].bgStyle = "waves";
+        if (archiveCards.length > 1) {
+             archiveCards[1].bgStyle = "laser";
+        }
+    }
+
     return (
         <section className="section-spacing px-6" id="archive">
             <div className="max-w-5xl mx-auto">
@@ -171,14 +166,14 @@ export default function ArchivoDesarrollo() {
                     <div className="flex items-center gap-3 mb-4">
                         <div className="w-8 h-[1px] bg-accent-blue" />
                         <span className="font-mono text-xs text-accent-blue tracking-wider">
-                            ARCHIVO
+                            {t("archive.section")}
                         </span>
                     </div>
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary tracking-tight">
-                        Más Proyectos
+                        {t("archive.title")}
                     </h2>
                     <p className="text-text-muted mt-3 max-w-lg">
-                        Proyectos complementarios que demuestran mi versatilidad técnica.
+                        {t("archive.subtitle")}
                     </p>
                 </motion.div>
 

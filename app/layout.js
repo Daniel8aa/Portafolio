@@ -1,5 +1,5 @@
 import "./globals.css";
-
+import I18nProvider from "../components/I18nProvider";
 export const metadata = {
     title: "Daniel | Desarrollo Full-Stack & Transformación Digital",
     description:
@@ -40,7 +40,6 @@ export default function RootLayout({ children }) {
                 />
             </head>
             <body className="bg-void text-text-primary antialiased">
-                {/* Noise Texture Overlay */}
                 <div className="noise-overlay" aria-hidden="true">
                     <svg>
                         <filter id="noiseFilter">
@@ -54,7 +53,7 @@ export default function RootLayout({ children }) {
                         <rect width="100%" height="100%" filter="url(#noiseFilter)" />
                     </svg>
                 </div>
-                {children}
+                <I18nProvider>{children}</I18nProvider>
             </body>
         </html>
     );

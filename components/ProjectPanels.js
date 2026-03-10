@@ -4,8 +4,10 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { Bot, Calendar, PlaySquare, Monitor, FileText, BarChart3, ExternalLink, Smartphone, Calculator } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export function PanelFlex() {
+    const { t } = useTranslation();
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -25,18 +27,16 @@ export function PanelFlex() {
                             <Bot className="w-4 h-4 text-accent-blue" />
                         </div>
                         <span className="font-mono text-xs text-accent-blue tracking-wider">
-                            FLEX & IDIOMAS
+                            {t("projects.panels.flex.tag")}
                         </span>
                     </div>
                     <h3 className="text-xl md:text-2xl font-bold text-text-primary mb-3">
-                        Plataforma Integral FLEX
+                        {t("projects.panels.flex.title")}
                     </h3>
-                    <p className="text-sm text-text-muted leading-relaxed mb-6">
-                        Digitalización completa de inscripciones a cursos de idiomas, automatizando
-                        la asignación de niveles, validación de cupos y horarios.
-                        Más de <span className="text-text-primary font-medium">miles de usuarios</span> interactuando
-                        con una interfaz fluida e intuitiva.
-                    </p>
+                    <p 
+                        className="text-sm text-text-muted leading-relaxed mb-6"
+                        dangerouslySetInnerHTML={{ __html: t("projects.panels.flex.desc") }}
+                    />
                     <div className="flex flex-wrap gap-4 mb-6">
                         <div className="flex flex-wrap gap-2">
                             {["Vue.js", "PHP", "Docker"].map((t) => (
@@ -54,7 +54,7 @@ export function PanelFlex() {
                             className="inline-flex items-center gap-2 px-4 py-2 text-sm font-mono text-accent-blue border border-accent-blue/30 rounded-lg hover:bg-accent-blue/10 transition-all duration-300"
                         >
                             <ExternalLink className="w-4 h-4" />
-                            Visitar Sitio
+                            {t("projects.visit")}
                         </a>
                     </div>
                 </div>
@@ -72,6 +72,8 @@ export function PanelFlex() {
 }
 
 export function PanelSuite() {
+    const { t } = useTranslation();
+    
     return (
         <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -85,28 +87,27 @@ export function PanelSuite() {
                     <Calendar className="w-4 h-4 text-accent-blue" />
                 </div>
                 <span className="font-mono text-xs text-accent-blue tracking-wider">
-                    SUITE 2026
+                    {t("projects.panels.suite.tag")}
                 </span>
             </div>
             <h3 className="text-xl md:text-2xl font-bold text-text-primary mb-2">
-                Suite Institucional 2026
+                {t("projects.panels.suite.title")}
             </h3>
             <p className="text-sm text-text-muted leading-relaxed mb-5">
-                Desarrollo de sistemas robustos interconectados. Plataformas para la transparencia y gestión de datos complejos.
+                {t("projects.panels.suite.desc")}
             </p>
 
             <div className="space-y-2 mb-5 flex-1">
-                {[
-                    { label: "POA_26", desc: "Presupuesto", icon: Calendar, color: "accent-blue" },
-                    { label: "PD_26", desc: "Plan de Desarrollo", icon: FileText, color: "accent-blue" },
-                    { label: "INF_LAB_26", desc: "Informe Labores", icon: BarChart3, color: "accent-blue" },
-                ].map((item) => (
+                {t("projects.panels.suite.items", { returnObjects: true }).map((item, index) => {
+                    const icons = [Calendar, FileText, BarChart3];
+                    const Icon = icons[index % icons.length];
+                    return (
                     <div
                         key={item.label}
                         className="flex items-center justify-between px-3 py-2.5 bg-void/50 border border-border rounded-lg"
                     >
                         <div className="flex items-center gap-3">
-                            <item.icon className="w-4 h-4 text-text-muted" />
+                            <Icon className="w-4 h-4 text-text-muted" />
                             <div>
                                 <span className="font-mono text-sm text-text-primary block">{item.label}</span>
                                 <span className="text-xs text-text-muted">{item.desc}</span>
@@ -114,7 +115,8 @@ export function PanelSuite() {
                         </div>
                         <span className="w-1.5 h-1.5 rounded-full bg-accent-blue live-dot" />
                     </div>
-                ))}
+                    );
+                })}
             </div>
 
             <div className="flex flex-wrap gap-2">
@@ -129,6 +131,8 @@ export function PanelSuite() {
 }
 
 export function PanelSpaceflix() {
+    const { t } = useTranslation();
+    
     return (
         <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -152,14 +156,14 @@ export function PanelSpaceflix() {
                             <PlaySquare className="w-4 h-4 text-accent-blue" />
                         </div>
                         <span className="font-mono text-xs text-accent-blue tracking-wider">
-                            PWA & MOBILE
+                            {t("projects.panels.spaceflix.tag")}
                         </span>
                     </div>
                     <h3 className="text-xl md:text-2xl font-bold text-text-primary mb-2">
-                        Spaceflix App
+                        {t("projects.panels.spaceflix.title")}
                     </h3>
                     <p className="text-sm text-text-muted leading-relaxed mb-5">
-                        Aplicación e-commerce para servicios digitales. Publicada en la tienda con base de datos en tiempo real, autenticación segura y una experiencia PWA nativa.
+                        {t("projects.panels.spaceflix.desc")}
                     </p>
                 </div>
 
@@ -198,6 +202,8 @@ export function PanelSpaceflix() {
 }
 
 export function PanelSectorUniversitario() {
+    const { t } = useTranslation();
+    
     return (
         <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -221,14 +227,14 @@ export function PanelSectorUniversitario() {
                             <Monitor className="w-4 h-4 text-accent-blue" />
                         </div>
                         <span className="font-mono text-xs text-accent-blue tracking-wider">
-                            INSTITUCIONAL
+                            {t("projects.panels.sector.tag")}
                         </span>
                     </div>
                     <h3 className="text-xl md:text-2xl font-bold text-text-primary mb-3">
-                        Sector Universitario
+                        {t("projects.panels.sector.title")}
                     </h3>
                     <p className="text-sm text-text-muted leading-relaxed mb-6">
-                        Plataforma centralizada para la gestión de solicitudes, usuarios y direcciones dentro del ecosistema universitario. Incluye módulos de cotización y administración de recursos.
+                        {t("projects.panels.sector.desc")}
                     </p>
                     <div className="flex flex-wrap gap-2 mb-6">
                         {["React", "Node.js", "MySQL", "UI/UX"].map((t) => (
@@ -244,6 +250,8 @@ export function PanelSectorUniversitario() {
 }
 
 export function PanelCotizador() {
+    const { t } = useTranslation();
+    
     return (
         <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -259,14 +267,14 @@ export function PanelCotizador() {
                             <Calculator className="w-4 h-4 text-accent-green" />
                         </div>
                         <span className="font-mono text-xs text-accent-green tracking-wider">
-                            HERRAMIENTAS & FINANZAS
+                            {t("projects.panels.cotizador.tag")}
                         </span>
                     </div>
                     <h3 className="text-xl md:text-2xl font-bold text-text-primary mb-3">
-                        Sistemas Cotizadores DGEC & Vinculación
+                        {t("projects.panels.cotizador.title")}
                     </h3>
                     <p className="text-sm text-text-muted leading-relaxed mb-6">
-                        Desarrollo de diferentes cotizadores especializados para la Universidad de Colima. Estas herramientas permiten calcular de manera precisa los costos de eventos, diplomados y la renta de espacios físicos, optimizando la gestión financiera y agilizando procesos institucionales.
+                        {t("projects.panels.cotizador.desc")}
                     </p>
                     <div className="flex flex-wrap gap-4 mb-6">
                         <div className="flex flex-wrap gap-2">
@@ -292,6 +300,8 @@ export function PanelCotizador() {
 }
 
 export function PanelPayfri() {
+    const { t } = useTranslation();
+    
     return (
         <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -315,14 +325,14 @@ export function PanelPayfri() {
                             <Smartphone className="w-4 h-4 text-pink-500" />
                         </div>
                         <span className="font-mono text-xs text-pink-500 tracking-wider">
-                            FREELANCE APP
+                            {t("projects.panels.payfri.tag")}
                         </span>
                     </div>
                     <h3 className="text-xl md:text-2xl font-bold text-text-primary mb-3">
-                        Payfri Wallet
+                        {t("projects.panels.payfri.title")}
                     </h3>
                     <p className="text-sm text-text-muted leading-relaxed mb-6">
-                        Colaboré como desarrollador freelance en la creación de Payfri Wallet, una aplicación financiera disponible en la Play Store. Diseñada con un enfoque en la agilidad y experiencia del usuario para transacciones rápidas.
+                        {t("projects.panels.payfri.desc")}
                     </p>
                     <div className="flex flex-wrap gap-4 mb-6">
                         <div className="flex flex-wrap gap-2">
@@ -341,7 +351,7 @@ export function PanelPayfri() {
                             className="inline-flex items-center gap-2 px-4 py-2 text-sm font-mono text-pink-500 border border-pink-500/30 rounded-lg hover:bg-pink-500/10 transition-all duration-300"
                         >
                             <ExternalLink className="w-4 h-4" />
-                            Ver en Play Store
+                            {t("projects.play_store")}
                         </a>
                     </div>
                 </div>

@@ -3,21 +3,22 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { User, Code2, GraduationCap, Briefcase } from "lucide-react";
-
-const stats = [
-    { value: "3+", label: "Años de Experiencia", icon: Briefcase },
-    { value: "10+", label: "Proyectos en Producción", icon: Code2 },
-    { value: "Maestría", label: "Transformación Digital", icon: GraduationCap },
-];
+import { useTranslation } from "react-i18next";
 
 export default function AboutMe() {
+    const { t } = useTranslation();
+    const stats = [
+        { value: "3+", label: t("about.stats.exp"), icon: Briefcase },
+        { value: "10+", label: t("about.stats.projects"), icon: Code2 },
+        { value: t("about.education.master").split(" ")[0], label: t("about.stats.edu"), icon: GraduationCap },
+    ];
+
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-80px" });
 
     return (
         <section id="about" className="section-spacing px-6" ref={ref}>
             <div className="max-w-5xl mx-auto">
-                {/* Section label */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -27,16 +28,15 @@ export default function AboutMe() {
                     <div className="flex items-center gap-3 mb-4">
                         <div className="w-8 h-[1px] bg-accent-blue" />
                         <span className="font-mono text-xs text-accent-blue tracking-wider">
-                            SOBRE MÍ
+                            {t("about.section")}
                         </span>
                     </div>
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary tracking-tight">
-                        Quién soy
+                        {t("about.title")}
                     </h2>
                 </motion.div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-                    {/* Bio */}
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -49,27 +49,19 @@ export default function AboutMe() {
                                     <User className="w-5 h-5 text-accent-blue" />
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-semibold text-text-primary">Luis Daniel Solis Ochoa</h3>
-                                    <span className="text-xs font-mono text-text-muted">Ingeniero de Software / Full-Stack Developer</span>
+                                    <h3 className="text-lg font-semibold text-text-primary">{t("about.name")}</h3>
+                                    <span className="text-xs font-mono text-text-muted">{t("about.role")}</span>
                                 </div>
                             </div>
 
                             <div className="space-y-4 text-[15px] text-text-muted leading-relaxed">
-                                <p>
-                                    Profesional en desarrollo de software con una sólida experiencia en tecnologías tanto web como móviles,
-                                    especializado en la creación de interfaces intuitivas y en la <span className="text-text-primary font-medium">optimización de la experiencia del usuario</span>.
-                                </p>
-                                <p>
-                                    Cuento con un amplio conocimiento en desarrollo <span className="font-mono text-accent-blue">Front-End (Vue.js, React.js, Next.js, Angular)</span>, además de sólidas capacidades en <span className="font-mono text-accent-blue">Back-End (PHP, Node.js, Laravel)</span> para implementar soluciones integrales.
-                                </p>
-                                <p>
-                                    Estoy comprometido con la <span className="text-text-primary font-medium">calidad y la innovación tecnológica</span>, trabajando con metodologías ágiles y bases de datos relacionales y no relacionales <span className="text-text-primary font-medium">(MySQL, MongoDB, Firebase)</span>. Mi meta es construir arquitecturas que escalen sin acumular deuda técnica.
-                                </p>
+                                <p dangerouslySetInnerHTML={{ __html: t("about.p1").replace(/(optimización de la experiencia del usuario|optimizing user experience)/, "<span class='text-text-primary font-medium'>$1</span>") }} />
+                                <p dangerouslySetInnerHTML={{ __html: t("about.p2").replace(/(Front-End \(Vue\.js, React\.js, Next\.js, Angular\))/, "<span class='font-mono text-accent-blue'>$1</span>").replace(/(Back-End \(PHP, Node\.js, Laravel\))/, "<span class='font-mono text-accent-blue'>$1</span>") }} />
+                                <p dangerouslySetInnerHTML={{ __html: t("about.p3").replace(/(calidad y la innovación tecnológica|quality and technological innovation)/, "<span class='text-text-primary font-medium'>$1</span>").replace(/(\(MySQL, MongoDB, Firebase\))/, "<span class='text-text-primary font-medium'>$1</span>") }} />
                             </div>
                         </div>
                     </motion.div>
 
-                    {/* Stats column */}
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -98,7 +90,6 @@ export default function AboutMe() {
                             </motion.div>
                         ))}
 
-                        {/* Education mini-card */}
                         <motion.div
                             initial={{ opacity: 0, x: 20 }}
                             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -108,21 +99,21 @@ export default function AboutMe() {
                             <div className="flex items-center gap-2 mb-3">
                                 <GraduationCap className="w-4 h-4 text-accent-blue" />
                                 <span className="font-mono text-xs text-accent-blue tracking-wider">
-                                    EDUCACIÓN
+                                    {t("about.education.title")}
                                 </span>
                             </div>
                             <div className="space-y-3">
                                 <div className="border-l-2 border-accent-blue/30 pl-3">
-                                    <p className="text-sm font-semibold text-text-primary">Maestría en Transformación Digital</p>
-                                    <p className="text-xs text-text-muted font-mono">2025 – Presente</p>
+                                    <p className="text-sm font-semibold text-text-primary">{t("about.education.master")}</p>
+                                    <p className="text-xs text-text-muted font-mono">{t("about.education.master_date")}</p>
                                 </div>
                                 <div className="border-l-2 border-accent-blue/30 pl-3">
-                                    <p className="text-sm font-semibold text-text-primary">Ingeniería en Software</p>
-                                    <p className="text-xs text-text-muted font-mono">2021 – 2025 · Titulado</p>
+                                    <p className="text-sm font-semibold text-text-primary">{t("about.education.degree")}</p>
+                                    <p className="text-xs text-text-muted font-mono">{t("about.education.degree_date")}</p>
                                 </div>
                                 <div className="border-l-2 border-accent-blue/30 pl-3">
-                                    <p className="text-sm font-semibold text-text-primary">Técnico Analista Programador</p>
-                                    <p className="text-xs text-text-muted font-mono">2018 – 2021</p>
+                                    <p className="text-sm font-semibold text-text-primary">{t("about.education.tech")}</p>
+                                    <p className="text-xs text-text-muted font-mono">{t("about.education.tech_date")}</p>
                                 </div>
                             </div>
                         </motion.div>

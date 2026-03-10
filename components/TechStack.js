@@ -2,32 +2,7 @@
 
 import { motion } from "framer-motion";
 
-const categories = [
-    {
-        title: "Frontend",
-        items: ["Angular", "Vue.js", "React.js", "Next.js", "HTML5/CSS3/SCSS", "Tailwind CSS"],
-    },
-    {
-        title: "Backend",
-        items: ["Node.js", "Express", "PHP", "Laravel", "REST API", "WebSockets"],
-    },
-    {
-        title: "Desarrollo Móvil",
-        items: ["Flutter & Dart", "Ionic & Capacitor", "PWA", "Android Studio"],
-    },
-    {
-        title: "Bases de Datos",
-        items: ["MySQL", "MariaDB", "MongoDB", "Firebase"],
-    },
-    {
-        title: "DevOps & CMS",
-        items: ["Docker", "Git/GitLab", "Google Cloud", "WordPress (Plugins)"],
-    },
-    {
-        title: "Soft Skills",
-        items: ["Comunicación efectiva", "Resolución de problemas", "Pensamiento crítico", "Autodidacta"],
-    },
-];
+import { useTranslation } from "react-i18next";
 
 const containerVariants = {
     hidden: {},
@@ -47,10 +22,12 @@ const itemVariants = {
 };
 
 export default function TechStack() {
+    const { t } = useTranslation();
+    const categories = t("stack.categories", { returnObjects: true }) || [];
+
     return (
         <section id="stack" className="section-spacing px-6">
             <div className="max-w-5xl mx-auto">
-                {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -61,18 +38,17 @@ export default function TechStack() {
                     <div className="flex items-center gap-3 mb-4">
                         <div className="w-8 h-[1px] bg-accent-blue" />
                         <span className="font-mono text-xs text-accent-blue tracking-wider">
-                            HABILIDADES
+                            {t("stack.section")}
                         </span>
                     </div>
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary tracking-tight">
-                        Stack & Skills
+                        {t("stack.title")}
                     </h2>
                     <p className="text-text-muted mt-3 max-w-lg">
-                        Las herramientas y competencias que uso día a día para construir software.
+                        {t("stack.subtitle")}
                     </p>
                 </motion.div>
 
-                {/* Categorized grid */}
                 <div className="space-y-8">
                     {categories.map((category, catIndex) => (
                         <motion.div

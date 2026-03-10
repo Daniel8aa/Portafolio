@@ -10,23 +10,20 @@ import Manifiesto from "@/components/Manifiesto";
 import ArchivoDesarrollo from "@/components/ArchivoDesarrollo";
 import TechStack from "@/components/TechStack";
 import Footer from "@/components/Footer";
+import { useTranslation } from "react-i18next";
 
 export default function Home() {
+    const { t } = useTranslation();
     return (
         <main className="relative">
             <Navbar />
             <Hero />
-
-            {/* ── SOBRE MÍ ── */}
             <AboutMe />
-
-            {/* ── EXPERIENCIA PROFESIONAL ── */}
             <Experience />
 
             {/* ── PROYECTOS ESTRELLA ── */}
             <section id="projects" className="section-spacing px-6">
                 <div className="max-w-5xl mx-auto">
-                    {/* Section header */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -37,18 +34,17 @@ export default function Home() {
                         <div className="flex items-center gap-3 mb-4">
                             <div className="w-8 h-[1px] bg-accent-blue" />
                             <span className="font-mono text-xs text-accent-blue tracking-wider">
-                                PROYECTOS
+                                {t("nav.projects").replace('{}','').toUpperCase()}
                             </span>
                         </div>
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary tracking-tight">
-                            Proyectos Destacados
+                            {t("projects.title")}
                         </h2>
                         <p className="text-text-muted mt-3 max-w-lg">
-                            Sistemas que he diseñado e implementado de principio a fin.
+                            {t("projects.subtitle")}
                         </p>
                     </motion.div>
 
-                    {/* Top panel full width */}
                     <div className="space-y-6">
                         <PanelFlex />
                         <PanelSectorUniversitario />
@@ -61,17 +57,9 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-
-            {/* ── FILOSOFÍA ── */}
             <Manifiesto />
-
-            {/* ── MÁS PROYECTOS ── */}
             <ArchivoDesarrollo />
-
-            {/* ── SKILLS & STACK ── */}
             <TechStack />
-
-            {/* ── CONTACTO & FOOTER ── */}
             <Footer />
         </main>
     );

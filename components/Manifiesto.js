@@ -3,11 +3,7 @@
 import { useRef } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 
-const lines = [
-    { text: "No solo escribo líneas de código.", style: "muted" },
-    { text: "Diseño soluciones que escalan", style: "accent" },
-    { text: "y optimizan procesos.", style: "bold" },
-];
+import { useTranslation } from "react-i18next";
 
 function SplitWord({ word, index, progress, totalWords }) {
     const start = index / totalWords;
@@ -22,13 +18,15 @@ function SplitWord({ word, index, progress, totalWords }) {
 }
 
 export default function Manifiesto() {
+    const { t } = useTranslation();
+    const lines = t("manifesto.lines", { returnObjects: true }) || [];
     const containerRef = useRef(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start end", "end start"],
     });
 
-    const allWords = lines.flatMap((line) => line.text.split(" "));
+    const allWords = lines.flatMap((line) => (line.text || "").split(" "));
 
     return (
         <section ref={containerRef} className="relative py-32 md:py-48 px-6 bg-void overflow-hidden">
@@ -43,15 +41,15 @@ export default function Manifiesto() {
                     className="mb-12 flex items-center gap-3"
                 >
                     <div className="w-8 h-[1px] bg-accent-blue" />
-                    <span className="font-mono text-xs text-accent-blue tracking-wider">FILOSOFÍA</span>
+                    <span className="font-mono text-xs text-accent-blue tracking-wider">{t("manifesto.section")}</span>
                 </motion.div>
 
                 <div className="space-y-4 md:space-y-6">
                     {lines.map((line, lineIndex) => {
-                        const words = line.text.split(" ");
+                        const words = (line.text || "").split(" ");
                         const wordsBefore = lines
                             .slice(0, lineIndex)
-                            .reduce((sum, l) => sum + l.text.split(" ").length, 0);
+                            .reduce((sum, l) => sum + (l.text || "").split(" ").length, 0);
 
                         return (
                             <p

@@ -4,17 +4,24 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Terminal, Menu, X, Download } from "lucide-react";
 
+import { useTranslation } from "react-i18next";
+
 const navLinks = [
-    { label: "Sobre_Mi()", href: "#about" },
-    { label: "Experiencia[]", href: "#experience" },
-    { label: "Proyectos{}", href: "#projects" },
-    { label: "Stack", href: "#stack" },
-    { label: "Contacto", href: "#contact" },
+    { key: "about", href: "#about" },
+    { key: "experience", href: "#experience" },
+    { key: "projects", href: "#projects" },
+    { key: "stack", href: "#stack" },
+    { key: "contact", href: "#contact" },
 ];
 
 export default function Navbar() {
+    const { t, i18n } = useTranslation();
     const [scrolled, setScrolled] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
+    
+    const toggleLanguage = () => {
+        i18n.changeLanguage(i18n.language === 'en' ? 'es' : 'en');
+    };
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -40,7 +47,7 @@ export default function Navbar() {
                 className={`navbar-island px-4 py-3 md:px-6 md:py-3 flex items-center justify-between transition-all duration-500 ${scrolled ? "shadow-2xl shadow-accent-blue/5" : ""
                     }`}
             >
-                {/* Logo */}
+
                 <a
                     href="#hero"
                     onClick={(e) => handleClick(e, "#hero")}
@@ -54,7 +61,6 @@ export default function Navbar() {
                     </span>
                 </a>
 
-                {/* Desktop Links */}
                 <div className="hidden lg:flex items-center gap-2">
                     {navLinks.map((link) => (
                         <a
@@ -63,7 +69,7 @@ export default function Navbar() {
                             onClick={(e) => handleClick(e, link.href)}
                             className="px-3 py-1.5 text-sm font-mono text-text-muted hover:text-text-primary hover:bg-white/5 rounded-lg transition-all duration-300"
                         >
-                            {link.label}
+                            {t(`nav.${link.key}`)}
                         </a>
                     ))}
                     <a
@@ -73,21 +79,36 @@ export default function Navbar() {
                         className="ml-2 flex items-center gap-1.5 px-3 py-1.5 text-sm font-mono text-accent-blue hover:bg-accent-blue/10 border border-accent-blue/30 rounded-lg transition-all duration-300"
                     >
                         <Download className="w-3.5 h-3.5" />
-                        CV
+                        {t("nav.cv")}
                     </a>
+                    
+                    <button
+                        onClick={toggleLanguage}
+                        className="ml-2 flex items-center justify-center px-2 py-1.5 text-sm font-mono text-text-muted hover:text-text-primary hover:bg-white/5 rounded-lg transition-all duration-300 uppercase"
+                    >
+                        {i18n.language === 'en' ? 'EN' : 'ES'}
+                    </button>
                 </div>
 
-                {/* Mobile toggle */}
-                <button
-                    onClick={() => setMobileOpen(!mobileOpen)}
-                    className="lg:hidden w-8 h-8 flex items-center justify-center text-text-muted hover:text-text-primary transition-colors"
-                    aria-label="Toggle menu"
-                >
-                    {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-                </button>
+
+                <div className="flex items-center gap-2 lg:hidden">
+                    <button
+                        onClick={toggleLanguage}
+                        className="flex items-center justify-center px-2 py-1.5 text-sm font-mono text-text-muted hover:text-text-primary hover:bg-white/5 rounded-lg transition-all duration-300 uppercase"
+                    >
+                        {i18n.language === 'en' ? 'EN' : 'ES'}
+                    </button>
+                    <button
+                        onClick={() => setMobileOpen(!mobileOpen)}
+                        className="w-8 h-8 flex items-center justify-center text-text-muted hover:text-text-primary transition-colors"
+                        aria-label="Toggle menu"
+                    >
+                        {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                    </button>
+                </div>
             </div>
 
-            {/* Mobile menu */}
+
             <AnimatePresence>
                 {mobileOpen && (
                     <motion.div
@@ -104,7 +125,7 @@ export default function Navbar() {
                                 onClick={(e) => handleClick(e, link.href)}
                                 className="px-3 py-2.5 text-sm font-mono text-text-muted hover:text-text-primary hover:bg-white/5 rounded-lg transition-all duration-300"
                             >
-                                {link.label}
+                                {t(`nav.${link.key}`)}
                             </a>
                         ))}
                         <a
@@ -114,7 +135,7 @@ export default function Navbar() {
                             className="mt-1 flex items-center gap-2 px-3 py-2.5 text-sm font-mono text-accent-blue hover:bg-accent-blue/10 rounded-lg transition-all duration-300"
                         >
                             <Download className="w-3.5 h-3.5" />
-                            Previsualizar CV
+                            {t("nav.preview_cv")}
                         </a>
                     </motion.div>
                 )}

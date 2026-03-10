@@ -4,13 +4,12 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, Github, Linkedin, Download, MapPin } from "lucide-react";
 
-const typingTexts = [
-    "Construyo software que funciona.",
-    "Automatizo procesos complejos.",
-    "Diseño arquitecturas escalables.",
-];
+import { useTranslation } from "react-i18next";
 
 export default function Hero() {
+    const { t } = useTranslation();
+    const typingTexts = t("hero.typing", { returnObjects: true });
+    
     const [displayText, setDisplayText] = useState("");
     const [textIndex, setTextIndex] = useState(0);
     const [charIndex, setCharIndex] = useState(0);
@@ -68,10 +67,8 @@ export default function Hero() {
             id="hero"
             className="relative w-full min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden"
         >
-            {/* Radial glow */}
             <div className="absolute inset-0 hero-glow" />
 
-            {/* Floating orbs */}
             <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-blue/5 rounded-full blur-3xl float-animation" />
             <div
                 className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-accent-green/5 rounded-full blur-3xl float-animation"
@@ -84,28 +81,25 @@ export default function Hero() {
                 animate="visible"
                 className="relative z-10 text-center px-6 max-w-4xl mx-auto"
             >
-                {/* Status badge */}
                 <motion.div
                     variants={itemVariants}
                     className="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-surface-80 backdrop-blur-sm"
                 >
                     <span className="w-2 h-2 rounded-full bg-accent-green live-dot" />
                     <span className="text-xs font-mono text-text-muted tracking-wide">
-                        OPEN TO WORK
+                        {t("hero.open_to_work")}
                     </span>
                 </motion.div>
 
-                {/* Main headline */}
                 <motion.h1
                     variants={itemVariants}
                     className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight mb-4"
                 >
                     <span className="block text-text-primary" style={{ fontFamily: "var(--font-sans)" }}>
-                        Hola, soy Daniel.
+                        {t("hero.hello")}
                     </span>
                 </motion.h1>
 
-                {/* Typing subtitle */}
                 <motion.p
                     variants={itemVariants}
                     className="font-mono text-xl sm:text-2xl md:text-3xl text-accent-blue mb-5"
@@ -117,25 +111,21 @@ export default function Hero() {
                     />
                 </motion.p>
 
-                {/* Role description */}
                 <motion.p
                     variants={itemVariants}
                     className="text-base sm:text-lg text-text-muted font-light max-w-2xl mx-auto mb-3 leading-relaxed"
                 >
-                    Desarrollador Full-Stack &nbsp;·&nbsp; Arquitectura de Software &nbsp;·&nbsp;
-                    Maestría en Transformación Digital
+                    {t("hero.role")}
                 </motion.p>
 
-                {/* Location */}
                 <motion.p
                     variants={itemVariants}
                     className="flex items-center justify-center gap-1.5 text-sm text-text-muted/70 mb-10"
                 >
                     <MapPin className="w-3.5 h-3.5" />
-                    <span className="font-mono">Colima, México</span>
+                    <span className="font-mono">{t("hero.location")}</span>
                 </motion.p>
 
-                {/* CTAs */}
                 <motion.div
                     variants={itemVariants}
                     className="flex flex-col sm:flex-row items-center justify-center gap-4"
@@ -147,7 +137,7 @@ export default function Hero() {
                         className="flex items-center gap-2.5 px-7 py-3.5 bg-white/5 hover:bg-white/10 border border-border hover:border-border-hover text-text-primary font-medium rounded-xl transition-all duration-300 hover:-translate-y-0.5"
                     >
                         <Github className="w-5 h-5" />
-                        <span>Ver GitHub</span>
+                        <span>{t("hero.github")}</span>
                     </a>
                     <a
                         href="#contact"
@@ -157,11 +147,10 @@ export default function Hero() {
                         }}
                         className="flex items-center gap-2.5 px-7 py-3.5 bg-white/5 hover:bg-white/10 border border-border hover:border-border-hover text-text-primary font-medium rounded-xl transition-all duration-300 hover:-translate-y-0.5"
                     >
-                        <span>Contactar</span>
+                        <span>{t("hero.contact")}</span>
                     </a>
                 </motion.div>
 
-                {/* Social */}
                 <motion.div
                     variants={itemVariants}
                     className="mt-10 flex items-center justify-center gap-4"
@@ -185,14 +174,13 @@ export default function Hero() {
                 </motion.div>
             </motion.div>
 
-            {/* Scroll indicator */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2.5, duration: 1 }}
                 className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
             >
-                <span className="text-xs font-mono text-text-muted tracking-widest">SCROLL</span>
+                <span className="text-xs font-mono text-text-muted tracking-widest">{t("hero.scroll")}</span>
                 <motion.div
                     animate={{ y: [0, 8, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
